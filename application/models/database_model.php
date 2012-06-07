@@ -77,6 +77,10 @@ class Database_model extends CI_Model {
                 'type' => 'text'
             ),
 
+            'url' => array(
+                'type' => 'text'
+            ),
+
             /**
              * Published & Edited fields
              *
