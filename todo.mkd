@@ -1,0 +1,81 @@
+# TODO
+
+## Feature list
+
+- Index page has linked list of uploaded posts
+- Template parser that parses uploaded posts for key values
+- JSON key => value data store for site-wide data
+- Ability to store raw and parsed versions of the file in a database
+
+## Order or Implementation
+
+### Index of uploaded posts
+
+- Index controller
+- Posts model: fetch all method
+- Index view
+
+### Template parsing
+
+- `posted` controller that attempts to fetch uploaded posts
+- Config json file
+- Parsing uploaded post according to json file
+
+# Feature List Detail
+
+### Index page
+
+Index page contains linked list of posts
+
+    <ul>
+        <li><a href="..." title="Post title">Post Title</a></li>
+        ...
+    </ul>
+
+### Template parser
+
+An uploaded post, better termed a template, may need contain data that has the
+potential to change, such as author biographies and blog titles. I propose to
+integrate a moustache style system.
+
+    <title>{{ blog_title }}</title>
+
+becomes
+
+    <title>My blog title</title>
+
+Of course, we'd need to define this variable in a file somewhere in the payload
+backend, which is where the [JSON key => value store](#json) comes in.
+
+### [JSON Key => Value Store](#json)
+
+Data that has the potential to change should be centralised in the system so
+changing it is trivial. Instead of storing this in xml or a PHP array, it makes
+sense to store it as JSON so it's accessible via javascript. Obviously,
+sensitive data should not be stored in a publicly accessible file.
+
+*Note*: Look into search engine support for json sitemaps.
+
+    {
+        "blog" : {
+            "title" : "My blog title",
+            "created" : "25th of May"
+            "author" : {
+                "name" : "Ralph Saunders",
+                "bio" : "Ralph is the creator of Payload",
+                "url" : "http://ralphsaunders.co.uk",
+                "twitter" : "ralphsaunders"
+            }
+        }
+    }
+
+### Store Raw and Parsed versions of files
+
+When a file is uploaded it must be parsed for keys that are present in the JSON
+key => value store. This would happen when it's first accessed. As we're
+invoking PHP logic, it makes sense to take a record of the contents (sqlite) of
+the `raw` and `parsed` states of the file, the most recent date available, the
+file's name, and a hash of these things.
+
+Once a file has been parsed and records have been taken, payload will write a
+new html file named index.html in the appropriate directory.
