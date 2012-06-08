@@ -11,7 +11,7 @@ function error( $messages )
     }
     else if( is_string( $messages ) )
     {
-        $errors = array( 'error', $messages );
+        $errors = $messages;
     }
     else
     {

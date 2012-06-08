@@ -43,6 +43,7 @@ class Database_model extends CI_Model {
         else
         {
             $this->_create_posts();
+            $this->_create_sitemap();
 
             return true;
         }
@@ -61,7 +62,7 @@ class Database_model extends CI_Model {
         $this->load->dbforge();
 
         $post_fields = array(
-            'filename' => array(
+            'title' => array(
                 'type' => 'text'
             ),
 
@@ -92,10 +93,6 @@ class Database_model extends CI_Model {
              */
             'published' => array(
                 'type' => 'text'
-            ),
-
-            'edited' => array(
-                'type' => 'text'
             )
         );
 
@@ -111,6 +108,38 @@ class Database_model extends CI_Model {
             die( 'could not create table "posts"' );
         }
     }
+
+    /**
+     * Create Sitemap
+     *
+     * Creates "Sitemap" table and fields within it.
+     *
+     * @access private
+     * @return bool
+     */
+    function _create_sitemap()
+    {
+        $this->load->dbforge();
+
+        $sitemap_fields = array(
+            'posted' => array(
+                'type' => 'text'
+            )
+        );
+
+        $this->dbforge->add_field( 'id INTEGER PRIMARY KEY' );
+        $this->dbforge->add_field( $sitemap_fields );
+
+        if( $this->dbforge->create_table( 'sitemap' ) )
+        {
+            return true;
+        }
+        else
+        {
+            die( 'could not create table "sitemap"' );
+        }
+    }
+
 }
 
 /* End of file database_model.php */

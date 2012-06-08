@@ -1,10 +1,14 @@
 Homepage
 
+<?php $this->load->helper( 'url' ); ?>
+
 <ul>
 <?php if( isset( $posts ) ) : foreach( $posts as $post ): ?>
 <li>
     <h3>
-        <?php echo anchor( $post['url'], $post['title'] ); ?>
+        <a href="./posted/<?php echo $post->{'url'}; ?>" title="Entry">
+            <?php echo $post->{'title'} ?>
+        </a>
     </h3>
 </li>
 <?php endforeach; endif; ?>

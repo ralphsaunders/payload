@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Canvas Is Badass</title>
+    <meta name="author" content="ralphsaunders">
+    <meta name="generator" content="iA Writer for Mac 1.2.2">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <style type="text/css">
+      body { color: #222; font: normal normal 400 100%/1.5em georgia,serif; margin: 3em auto; width: 40em }
+      a:link { color: #3366CC }
+      a:visited { color: #224488 }
+      blockquote,ol,p,ul { display: block; margin: 0 0 1.5em }
+      blockquote { border-left: solid .1em #E4E4E4; color: #919191; padding: 0 1.5em 0 1.4em }
+      code { font: normal normal 87.5%/1.71428571em monospace,sans-serif }
+      img { display: block; margin: 1.5em auto }
+      pre { display: block; font: normal normal 87.5%/1.71428571em monospace,sans-serif; margin: 1.71428571em }
+      h1,h2,h3,h4,h5,h6 { font-weight: 400 }
+      h1 { font-size: 225%; line-height: 1.3334em; margin: 0 0 .1666em }
+      h2 { font-size: 175%; line-height: 1.28571429em; margin: 0 0 .35714286em }
+      h3 { font-size: 137.5%; line-height: 1.3636em; margin: 0 0 .5em }
+      h4,h5,h6 { font-size: 112.5%; line-height: 1.3334em; margin: 0 0 .7778em }
+      ol,ul { list-style-position: outside; padding: 0 }
+      ol ol,ol ul,ul ol,ul ul { margin: 0 0 .75em 2em }
+      table { border-collapse: collapse; margin: 1.5em 0; width: 100% }
+      td,th { border: solid .1em #000; font-family: sans-serif; font-size: 87.5%; line-height: 1.71428571em; text-align: center }
+    </style>
+  </head>
+  <body>
+    <h1>Snake in HTML5 Canvas, A Tutorial</h1>
+
+<p>Recently I've been spending the majority of my time in Vim rather than Photoshop, so I thought I'd write up <a href="http://ralphsaunders.co.uk/canvas-derping/" title="">my recent snake project</a> which is written using the canvas API.</p>
+
+<p>What makes canvas cool is it can do stuff like <a href="http://www.craftymind.com/factory/html5video/CanvasVideo.html" title="">video manipulation</a> with just plain old javascript. In fact, you're able to write an arcade game like <a href="http://arandomurl.com/2010/07/25/html5-pacman.html" title="">pacman</a> in 1200-ish lines of (raw) javascript. If that sounds like too much, there are a couple of <a href="#libraries" title="">libraries</a> around now that would cut down the amount of code you need to write significantly.</p>
+
+<p>Seeing lots of people write cool things with javascript and the canvas API made me curious (read: I had to make something with canvas for university), so I set about writing the old but addictive game snake.</p>
+
+<p><strong>Note:</strong> If you just want to poke around with the finished code, you can <a href="http://derp" title="">download the code here (zip)</a>.</p>
+
+<h3>Step 1: canvas</h3>
+
+<p>The tags for the canvas element are rather simple to remember:</p>
+
+<pre><code>&lt;canvas id=&quot;canvas&quot; width=&quot;800&quot; height=&quot;600&quot;&gt;&lt;/canvas&gt;</code>
+</pre>
+<p>Easy right? In context:</p>
+
+<pre><code>&lt;!doctype html&gt;</code>
+<code>&lt;html&gt;</code>
+<code>    &lt;head&gt;</code>
+<code>        &lt;title&gt;Snake Tutorial&lt;/title&gt;</code>
+<code>        &lt;!-- jQuery :3 --&gt;</code>
+<code>        &lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&quot;&gt;&lt;/script&gt;</code>
+<code>        &lt;!-- Our scripts --&gt;</code>
+<code>        &lt;script type=&quot;text/javascript&quot; src=&quot;scripts.js&quot;&gt;&lt;/script&gt;</code>
+<code>    &lt;/head&gt;</code>
+<code>    &lt;body&gt;</code>
+<code>        &lt;canvas id=&quot;canvas&quot; width=&quot;800&quot; height=&quot;600&quot; style=&quot;border: 1px solid</code>
+<code>        gray&quot;&gt;&lt;/canvas&gt;</code>
+<code>    &lt;/body&gt;</code>
+<code>&lt;/html&gt;</code>
+</pre>
+<p>Time to start writing the javascript that's going to draw stuff on the canvas. I'll be using <a href="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" title="">jQuery</a> because I'm lazy. I'll also be writing using the <a href="http://jsfiddle.net/nQYTA/1/" title="">module pattern</a>, to keep things nice and tidy.</p>
+
+<h3>Step 2: Game Loop</h3>
+
+<p>Every game is built on a loop that usually consists of three parts:</p>
+
+<ol><li>Clearing the canvas
+<li>Updating coordinates
+<li>Drawing shapes
+</li></ol>
+<h4>Our basic Loop</h4>
+
+<p><code></code><code></code><code></code><code></code>Here we call ``snake.init()`` once which then calls `tick()` . The ``tick()`` function sets a timeout that calls the ``tick()`` function again after 100ms. As the timeout calls itself, we've created a loop that updates every 100ms.</p>
+
+<pre><code>// Our namespace</code>
+<code>var snake = function() {</code>
+</pre>
+<pre><code>    function tick() {</code>
+</pre>
+<pre><code>        console.log( &quot;tick&quot; );</code>
+</pre>
+<pre><code>        /**</code>
+<code>         * This timeout will call its parent function, tick(), ever 100ms, thus</code>
+<code>         * looping on itself</code>
+<code>         */ </code>
+<code>        setTimeout( function() { tick() }, 100 );</code>
+<code>    }</code>
+</pre>
+<pre><code>    return {</code>
+</pre>
+<pre><code>        /**</code>
+<code>         * Init</code>
+<code>         *</code>
+<code>         * Accessed via snake.init(), this function is a handle for the</code>
+<code>         * snake namespace.</code>
+<code>         */</code>
+<code>        init : function() {</code>
+</pre>
+<pre><code>            /**</code>
+<code>             * Here we refer to the tick() fuction within the snake namespace.</code>
+<code>             * We only want to call init() once, so tick() will have to loop on</code>
+<code>             * itself</code>
+<code>             */</code>
+<code>            tick(); </code>
+<code>        }</code>
+</pre>
+<pre><code>    };</code>
+</pre>
+<pre><code>}();</code>
+</pre>
+<pre><code>snake.init();</code>
+</pre>
+<pre><code>});</code>
+</pre>
+<h4>Clearing</h4>
+
+<p><code></code>Clearing the canvas can be kept simple as snake isn't very graphically demanding, even when it's written using the canvas API. When working directly with the canvas, we must reference its draw context and to do that we need to reference the canvas itself. The actual clearing occurs at the beginning of `tick()` as we'll want to draw onto a blank canvas.</p>
+
+<pre><code>// Our namespace</code>
+<code>var snake = function() {</code>
+</pre>
+<pre><code>    /**</code>
+<code>     * canvas</code>
+<code>     *</code>
+<code>     * Selects canvas element via ID canvas.</code>
+<code>     * Canvas holds our drawing plane.</code>
+<code>     *</code>
+<code>     * @type DOM object</code>
+<code>     */</code>
+<code>    var canvas = document.getElementById( &apos;canvas&apos; );</code>
+</pre>
+<pre><code>    /**</code>
+<code>     * draw</code>
+<code>     *</code>
+<code>     * The drawing plane for canvas. This is what we manipulate when</code>
+<code>     * drawing/clearing stuff. Example:</code>
+<code>     *</code>
+<code>     *      draw.fillRect( 20, 20, 100, 100 );</code>
+<code>     *</code>
+<code>     *      Draws a rectangle at x:20, y:20 with a width of 100px and a height</code>
+<code>     *      of 100px.</code>
+<code>     */</code>
+<code>    var draw = canvas.getContext( &apos;2d&apos; );</code>
+</pre>
+
+<pre><code>    function tick() {</code>
+</pre>
+<pre><code>        // Clear the entire canvas </code>
+<code>        draw.clearRect( 0, 0, canvas.width, canvas.height );</code>
+</pre>
+<pre><code>        console.log( &quot;tick&quot; );</code>
+</pre>
+<pre><code>        /**</code>
+<code>         * This timeout will call its parent function, tick(), ever 100ms, thus</code>
+<code>         * looping on itself</code>
+<code>         */ </code>
+<code>        setTimeout( function() { tick() }, 100 );</code>
+<code>    }</code>
+</pre>
+<pre><code>    return {</code>
+</pre>
+<pre><code>        /**</code>
+<code>         * Init</code>
+<code>         *</code>
+<code>         * Accessed via snake.init(), this function is a handle for the</code>
+<code>         * snake namespace.</code>
+<code>         */</code>
+<code>        init : function() {</code>
+</pre>
+<pre><code>            /**</code>
+<code>             * Here we refer to the tick() fuction within the snake namespace.</code>
+<code>             * We only want to call init() once, so tick() will have to loop on</code>
+<code>             * itself</code>
+<code>             */</code>
+<code>            tick(); </code>
+<code>        }</code>
+</pre>
+<pre><code>    };</code>
+</pre>
+<pre><code>}();</code>
+</pre>
+<pre><code>snake.init();</code>
+</pre>
+<pre><code>});</code>
+</pre>
+<h4>Updating &amp; Drawing</h4>
+
+<p>Snake is a grid based game. Each body segment, the head, and the fruit line up on the grid which allow the player to predict where the snake is going to turn in relation to when they press a key. Before we can write code that updates coordinates and draws the snake, we need to define how big each grid segment is going to be.</p>
+
+<p><code></code>I've found segments of 20x20 work well. Place this code below our `draw` variable.</p>
+
+<pre><code>/**</code>
+<code> * Unit</code>
+<code> *</code>
+<code> * This is the &apos;unit&apos; of measure that defines the grid of our snake</code>
+<code> * game.</code>
+<code> */</code>
+<code>var unit = 20;</code>
+</pre>
+<p>The other thing we have to do before we can start drawing &amp; updating our snake is to setup a coordinate system.</p>
+
+<p><code></code><code></code><code></code><code></code>The snake has to move along our grid and we will also have to check for collisions later on. Any segment on the grid is defined by `x` and `y` coordinates. `x` being how far a segment is along the x-axis and `y` being how far a segment is down the y-axis.</p>
+
+<pre><code>/**</code>
+<code> * Coordinates</code>
+<code> *</code>
+<code> * Array holds x and y coordinates for our snake&apos;s head</code>
+<code> */</code>
+<code>var coords = new Array();</code>
+<code>coords = generateRandomCoords();</code>
+</pre>
+<p><code></code><code></code>You'll notice we assign the returned value of `generateRandomCoords()` to ``coords`` . This is so spawning of our snake is random at the start of every game.</p>
+
+<p><code></code>How `generateRandomCoords()` works:</p>
+
+<pre><code>/**</code>
+<code> * Generate Random Coords</code>
+<code> *</code>
+<code> * Generates random x &amp; y coordinates in multiples of our &apos;unit&apos;.</code>
+<code> *</code>
+<code> * @return array[ int, int ]</code>
+<code> */</code>
+<code>function generateRandomCoords() {</code>
+<code>    /**</code>
+<code>     * The functions:</code>
+<code>     *     Math.round() is used to round a number to its nearest whole</code>
+<code>     *     number. We do this because pixels can only be whole numbers.</code>
+<code>     *</code>
+<code>     *     Math.floor rounds the number *down* to its nearest whole number.</code>
+<code>     *</code>
+<code>     *     Math.random() generates a random number between 0 and 1.</code>
+<code>     *</code>
+<code>     * What&apos;s going on:</code>
+<code>     *</code>
+<code>     *      We want to generate a random number between 0 and the width</code>
+<code>     *      of the canvas.</code>
+<code>     *</code>
+<code>     *      If we just multipled Math.random() by</code>
+<code>     *      canvas.width we might get a number at the extreme right of</code>
+<code>     *      the canvas. Shapes are drawn from the top-left, so an</code>
+<code>     *      x-coordinate at the far right of the canvas will cause our</code>
+<code>     *      shape to be drawn off-screen. To counter this, we remove</code>
+<code>     *      almost an entire unit&apos;s value from the canvas.width value.</code>
+<code>     *</code>
+<code>     *      Math.random() * (canvas.width - ( unit - 1 ) )</code>
+<code>     *</code>
+<code>     *      Once we&apos;ve got our base value, we round it down to a whole</code>
+<code>     *      number and then divide that by our unit, in turn rounding</code>
+<code>     *      that to a whole number. The reason we do this is because we</code>
+<code>     *      only want to generate values that are multiples of our unit.</code>
+<code>     *</code>
+<code>     *      Math.round(</code>
+<code>     *          Math.floor(</code>
+<code>     *              Math.random() * (</code>
+<code>     *                  canvas.width - ( unit - 1 )</code>
+<code>     *              )</code>
+<code>     *          )</code>
+<code>     *          / unit</code>
+<code>     *      )</code>
+<code>     *</code>
+<code>     *      To finish we then multiply this rounded figure up again by</code>
+<code>     *      the unit so we have a value that can represent any point on</code>
+<code>     *      the canvas given that it&apos;s a multiple of our unit.</code>
+<code>     *</code>
+<code>     *      Math.round(</code>
+<code>     *          Math.floor(</code>
+<code>     *              Math.random() * (</code>
+<code>     *                  canvas.width - ( unit - 1 )</code>
+<code>     *              )</code>
+<code>     *          )</code>
+<code>     *          / unit</code>
+<code>     *      )</code>
+<code>     *      * unit;</code>
+<code>     */</code>
+<code>    var x = Math.round( Math.floor( Math.random() * ( canvas.width  - ( unit - 1 ) ) ) / unit ) * unit;</code>
+<code>    var y = Math.round( Math.floor( Math.random() * ( canvas.height - ( unit - 1 ) ) ) / unit ) * unit;</code>
+</pre>
+<pre><code>    return [ x, y ];</code>
+<code>}</code>
+</pre>
+<p>To create the illusion of animation, we need to update these generated coordinates every time the game loops.</p>
+
+<p>Starting simply, we can just increment the x-coordinate.</p>
+
+<pre><code>/**</code>
+<code>* Update Coordinates</code>
+<code>*</code>
+<code>* Increments x coordinate by unit</code>
+<code>*</code>
+<code>* @param array[x, y]</code>
+<code>*/</code>
+<code>function updateCoords( origin ) {</code>
+</pre>
+<pre><code>   // Increment our x coordinate</code>
+<code>   origin[0] += unit;</code>
+</pre>
+<pre><code>   /**</code>
+<code>    * If the x coordinate on the next tick will be more than our</code>
+<code>    * canvas&apos; width ( i.e. off-screen ) reset it to 0, moving it to the</code>
+<code>    * far left of the canvas.</code>
+<code>    */</code>
+<code>   if( origin[0] + unit &gt; canvas.width ) {</code>
+<code>       origin[0] = 0;</code>
+<code>   }</code>
+<code>}</code>
+</pre>
+<p>Of course, we now need to draw in the head of the snake based on these coordinates.</p>
+
+<pre><code>/**</code>
+<code> * Draw Snake</code>
+<code> *</code>
+<code> * Draws rectangle(s) onto the canvas when given x and y coords in an</code>
+<code> * array.</code>
+<code> *</code>
+<code> * @param array[x, y]</code>
+<code> */</code>
+<code>function drawSnake( origin ) {</code>
+<code>    // The head of our snake</code>
+<code>    draw.fillStyle = &quot;rgb( 20, 151, 245)&quot;;</code>
+<code>    draw.fillRect( origin[0], origin[1], unit, unit );</code>
+<code>}</code>
+</pre>
+<p>We also need to call these functions back in the game loop so they update.</p>
+
+<pre><code>function tick() {</code>
+</pre>
+<pre><code>    // Clear the entire canvas</code>
+<code>    draw.clearRect( 0, 0, canvas.width, canvas.height );</code>
+</pre>
+<pre><code>    updateCoords( coords );</code>
+<code>    drawSnake( coords );</code>
+</pre>
+<pre><code>    /**</code>
+<code>     * This timeout will call its parent function, tick(), ever 100ms, thus</code>
+<code>     * looping on itself</code>
+<code>     */</code>
+<code>    setTimeout( function() { tick() }, 100 );</code>
+<code>}</code>
+</pre>
+<p>If you now have a blue block moving across the canvas along the x-axis, have a cup of tea. If you don't, <a href="head-udating.js" title="">your code should look something like this</a>.</p>
+
+<h3>Step 3: Directions</h3>
+
+<p>Adding directions to our snake game consists of two main parts:</p>
+
+<ol><li>Determining direction based on key commands
+<li>Moving the snake's head based on that direction
+</li></ol>
+<h4>Determining Direction: Variables</h4>
+
+<pre><code>/**</code>
+<code> * tock</code>
+<code> *</code>
+<code> * Bool that helps keep track of whether coords have been modified but</code>
+<code> * tick() hasn&apos;t updated yet.</code>
+<code> */</code>
+<code>var tock = true;</code>
+</pre>
+<pre><code>/**</code>
+<code> * keys</code>
+<code> *</code>
+<code> * Array holds a list of keycodes</code>
+<code> *</code>
+<code> * [ w, up arr ], [ a, left arr ], [ s, down arr ], [ d, right arr ]</code>
+<code> */</code>
+<code>var keys = [ [ 87, 38 ], [ 37, 65 ], [ 40, 83 ], [ 39, 68 ] ];</code>
+</pre>
+<pre><code>/**</code>
+<code> * direction</code>
+<code> *</code>
+<code> * String keeps track of direction.</code>
+<code> *</code>
+<code> * Up    : &apos;up&apos;</code>
+<code> * Left  : &apos;left&apos;</code>
+<code> * Down  : &apos;down&apos;</code>
+<code> * Right : &apos;right&apos;</code>
+<code> *</code>
+<code> */</code>
+<code>var direction = &apos;right&apos;;</code>
+</pre>
+<h4>Determining Direction: Logic</h4>
+
+<p>In snake, the player can change the snake's direction via keypress every time the game loops. This means we have to listen for that keypress within the loop:</p>
+
+<pre><code>   function tick() {</code>
+</pre>
+<pre><code>    // Clear the entire canvas</code>
+<code>    draw.clearRect( 0, 0, canvas.width, canvas.height );</code>
+</pre>
+<pre><code>    /**</code>
+<code>     * We only want the player to be able to issue one direction command</code>
+<code>     * per tick.</code>
+<code>     */</code>
+<code>    tock = true;</code>
+</pre>
+<pre><code>    // Listen for keypress</code>
+<code>    $( document ).keydown( function( e ) {</code>
+<code>        changeDirection( e );</code>
+<code>    });</code>
+</pre>
+<pre><code>    updateCoords( coords );</code>
+<code>    drawSnake( coords );</code>
+</pre>
+
+<pre><code>    /**</code>
+<code>     * This timeout will call its parent function, tick(), ever 100ms, thus</code>
+<code>     * looping on itself</code>
+<code>     */</code>
+<code>    setTimeout( function() { tick() }, 100 );</code>
+<code>}</code>
+</pre>
+<p><code></code>When the player does press a key, `changeDirection()` is called.</p>
+
+<pre><code>/**</code>
+<code> * Change Direction</code>
+<code> *</code>
+<code> * Modifies direction based on key press. Only listens to one keypress</code>
+<code> * per tock (reset in tick()).</code>
+<code> */</code>
+<code>function changeDirection( e ) {</code>
+</pre>
+<pre><code>    /**</code>
+<code>     * Loop through all recorded keycodes in the keys array. If the key</code>
+<code>     * pressed matches one of the keycodes then we&apos;ll prevent its</code>
+<code>     * default function.</code>
+<code>     */</code>
+<code>    for( i = 0; i &lt; keys.length; i++ ) {</code>
+<code>        if( e.which == keys[i][0] || e.which == keys[i][1] ) {</code>
+<code>            e.preventDefault();</code>
+<code>        }</code>
+<code>    }</code>
+</pre>
+<pre><code>    if( tock ) {</code>
+</pre>
+<pre><code>        /**</code>
+<code>         * Check the keycode for the pressed key against the keys in our</code>
+<code>         * array.</code>
+<code>         */</code>
+<code>        if( e.which == keys[0][0] || e.which == keys[0][1] ) { // Up</code>
+<code>            direction = &apos;up&apos;;</code>
+<code>        } else if( e.which == keys[1][0] || e.which == keys[1][1] ) { // Left</code>
+<code>            direction = &apos;left&apos;;</code>
+<code>        } else if( e.which == keys[2][0] || e.which == keys[2][1] ) { // Down</code>
+<code>            direction = &apos;down&apos;;</code>
+<code>        } else if( e.which == keys[3][0] || e.which == keys[3][1] ) { // Right</code>
+<code>            direction = &apos;right&apos;;</code>
+<code>        }</code>
+</pre>
+<pre><code>        tock = false;</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<h4>Movement</h4>
+
+<p><code></code>Now we've defined our current direction, we want to modify the snake head coordinates according to the current direction. Building off of our original `updateCoords()` function gives us something like this:</p>
+
+<pre><code>/**</code>
+<code> * Update Coordinates</code>
+<code> *</code>
+<code> * Moves snake&apos;s head based on direction. Also moves snake&apos;s head to the</code>
+<code> * other side of the canvas if the next coordinates cause it to go</code>
+<code> * off-screen.</code>
+<code> *</code>
+<code> * @param array[x, y]</code>
+<code> */</code>
+<code>function updateCoords( origin ) {</code>
+</pre>
+<pre><code>    if( direction == &apos;up&apos; ) {</code>
+<code>        origin[1] -= unit;</code>
+<code>    } else if( direction == &apos;left&apos; ) {</code>
+<code>        origin[0] -= unit;</code>
+<code>    } else if( direction == &apos;down&apos; ) {</code>
+<code>        origin[1] += unit;</code>
+<code>    } else if( direction == &apos;right&apos; ) {</code>
+<code>        origin[0] += unit;</code>
+<code>    }</code>
+</pre>
+<pre><code>    // Reset snakes head if it has gone out of bounds</code>
+<code>    if( origin[0] &lt; 0 ) {</code>
+<code>        origin[0] = canvas.width - unit;</code>
+<code>    } else if( origin[0] + unit &gt; canvas.width ) {</code>
+<code>        origin[0] = 0; // No need to add unit because head is drawn from topLeft</code>
+<code>    }</code>
+</pre>
+<pre><code>    if( origin[1] &lt; 0 ) {</code>
+<code>        origin[1] = canvas.height - unit;</code>
+<code>    } else if( origin[1] + unit &gt; canvas.height ) {</code>
+<code>        origin[1] = 0; // No need to add unit because head is drawn from topLeft</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<p>If it all went well, your snake head should now be responding to directional input via WASD and arrow keys. If not, <a href="direction-movement.js" title="">your code should look similar to this</a>.</p>
+
+<h3>Step 4: Adding A Tail</h3>
+
+<p>Time to make your snake look like a snake, with a snazzy new tail.</p>
+
+<p>The tail consists of three parts:</p>
+
+<ol><li>An array of tail segments
+<li>An array of past coordinates that will be assigned to the tail segments
+<li>A loop that draws the tail segments
+</li></ol>
+<h4>Segments &amp; Arrays</h4>
+
+<p>We want our snake's body to 'lag-behind' the snake's head. If the snake turns from upwards to left we want there to be a bend in the body:</p>
+
+<p><img src="a-bend.png" alt="A diagram illustrating this difficult to grasp "bending" concept" title="" /></p>
+
+<p>To do this, we need to maintain an array of body segments as well as an array of the head's past coordinates.</p>
+
+<h4>Segments &amp; Arrays: Variables</h4>
+
+<pre><code>/**</code>
+<code> * Past coordinates</code>
+<code> *</code>
+<code> * Array holds past coordinates for snake&apos;s head. The segments use this</code>
+<code> * for positioning.</code>
+<code> */</code>
+<code>var pastCoords = new Array();</code>
+</pre>
+<pre><code>/**</code>
+<code> * Segments</code>
+<code> *</code>
+<code> * Array used to keep track of the number of body segments the snake</code>
+<code> * has.</code>
+<code> */</code>
+<code>var segments = new Array();</code>
+<code>segments.push( &apos;1&apos; ); // It doesn&apos;t matter what values you add to the array</code>
+</pre>
+<p><code></code>Here I've pushed a value to the `segments` array straight away. This acts as the initial body for the snake.</p>
+
+<h4>Segments &amp; Arrays: Logic</h4>
+
+<p><code></code><code></code><code></code>We're going to want to update the `pastCoords` array on every tick. This needs to be done before we update the head's coordinates, so place a call to `updatePastCoords()` at the start of the `updateCoords()` function.</p>
+
+<p><code></code>How `updatePastCoords()` works:</p>
+
+<pre><code>/**</code>
+<code> * Update Past Coordinates</code>
+<code> *</code>
+<code> * Manages pastCoords array</code>
+<code> */</code>
+<code>function updatePastCoords() {</code>
+<code>    /**</code>
+<code>     * Push an array containing x &amp; y coordinates to the pastCoords</code>
+<code>     * array.</code>
+<code>     *</code>
+<code>     *      pastCoords.push( [x, y] )</code>
+<code>     */</code>
+<code>    pastCoords.push( [ coords[0], coords[1] ] );</code>
+</pre>
+<pre><code>    /**</code>
+<code>     * We need to trim the pastCoords array when it gets too long.</code>
+<code>     *</code>
+<code>     * If the length of our pastCoords array is more than the length of</code>
+<code>     * our snake&apos;s body...</code>
+<code>     */</code>
+<code>    if( pastCoords.length &gt; segments.length ) {</code>
+</pre>
+<pre><code>        /**</code>
+<code>         * Remove 1 element of our array from index 0.</code>
+<code>         *</code>
+<code>         *      pastCoords[0] == &apos;foo&apos;</code>
+<code>         *      pastCoords[1] == &apos;bar&apos;</code>
+<code>         *      pastCoords[2] == &apos;baz&apos;</code>
+<code>         *</code>
+<code>         *      becomes:</code>
+<code>         *</code>
+<code>         *      pastCoords[0] == &apos;bar&apos;</code>
+<code>         *      pastCoords[1] == &apos;baz&apos;</code>
+<code>         */</code>
+<code>        pastCoords.splice( 0, 1 );</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<h4>Drawing The Tail</h4>
+
+<p>Now we've got all the data we need, we can draw our tail, which is rather simple:</p>
+
+<pre><code>/**</code>
+<code> * Draw Snake</code>
+<code> *</code>
+<code> * Draws rectangle(s) onto the canvas when given x and y coords in an</code>
+<code> * array.</code>
+<code> *</code>
+<code> * @param array[x, y]</code>
+<code> */</code>
+<code>function drawSnake( origin ) {</code>
+<code>    // The head of our snake</code>
+<code>    draw.fillStyle = &quot;rgb( 20, 151, 245)&quot;;</code>
+<code>    draw.fillRect( origin[0], origin[1], unit, unit );</code>
+</pre>
+<pre><code>    // body segments</code>
+<code>    for( i = 0; i &lt; segments.length; i++ ) {</code>
+<code>        draw.fillRect( pastCoords[i][0], pastCoords[i][1], unit, unit );</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<p>This gives us a long line of the same coloured blocks, which looks rather rubbish. Making it look slightly less rubbish is rather easy (read:fun to experiment with). Simply replace our body segments code with:</p>
+
+<pre><code>// body segments</code>
+<code>for( i = 0; i &lt; segments.length; i++ ) {</code>
+<code>    if( i &lt; 5 ) {</code>
+<code>        /**</code>
+<code>         * We&apos;re adjusting our fill style based on the loop&apos;s index.</code>
+<code>         *</code>
+<code>         * The fourth value in rgba() stands for alpha, which is how</code>
+<code>         * transparent the fill is. The closer the alpha value is to</code>
+<code>         * 1, the less transparent it is.</code>
+<code>         */</code>
+<code>        draw.fillStyle = &quot;rgba( 20, 151, 245, 0.&quot; + ( i + 3 ) + &quot; )&quot;;</code>
+<code>    } else {</code>
+<code>        draw.fillStyle = &quot;rgba( 20, 151, 245, 0.7 )&quot;;</code>
+<code>    }</code>
+<code>    draw.fillRect( pastCoords[i][0], pastCoords[i][1], unit, unit );</code>
+<code>}</code>
+</pre>
+<p><code></code><code></code>Having one head and one body segment is OK, but having 8 segments is much better! For testing purposes only, add this code after our call to `drawSnake()` in our `tick()` function:</p>
+
+<pre><code>if( segments.length &lt; 8 ) {</code>
+<code>    segments.push( &apos;foo&apos; );</code>
+<code>}</code>
+</pre>
+<p>That's a bit more snake like right? Not working for you? <a href="tail.js" title="">Here's what we've got so far</a>.</p>
+
+<h3>Step 5: Tasty Fruit</h3>
+
+<p>Adding fruit functionality to our snake game consists of four key parts:</p>
+
+<ol><li>Generating fruit
+<li>Eating fruit
+<li>Growing our snake
+<li>Speeding up
+</li></ol>
+<h4>Tasty Fruit: Generation</h4>
+
+<p>We need to know whether the fruit exists or not on every frame, so we're going to need to add a call to a function into our loop after we've drawn the snake:</p>
+
+<pre><code>function tick() {</code>
+</pre>
+<pre><code>    // ...</code>
+</pre>
+<pre><code>    updateCoords( coords );</code>
+<code>    drawSnake( coords );</code>
+<code>    fruitHandler();</code>
+</pre>
+<pre><code>    / ...</code>
+<code>}</code>
+</pre>
+<p>We'll also need to maintain an array of fruit coordinates and keep track of whether the fruit exists with a boolean.</p>
+
+<pre><code>/**</code>
+<code> * fruit exists</code>
+<code> *</code>
+<code> * If fruit exists: bool should be true.</code>
+<code> */</code>
+<code>var fruitExists = false;</code>
+</pre>
+<pre><code>/**</code>
+<code> * fruit coordinates</code>
+<code> *</code>
+<code> * Array contains the fruit&apos;s coordinates.</code>
+<code> *</code>
+<code> * @values array[ x, y ];</code>
+<code> */</code>
+<code>var fruitCoords = new Array();</code>
+</pre>
+<p><code></code>How `fruitHandler()` works:</p>
+
+<pre><code>/**</code>
+<code> * Fruit Handler</code>
+<code> *</code>
+<code> * Function checks whether snake has eaten fruit and calls generation of</code>
+<code> * fruit when it there is no fruit on page.</code>
+<code> */</code>
+<code>function fruitHandler() {</code>
+<code>    // If fruitExists is false...</code>
+<code>    if( ! fruitExists ) {</code>
+<code>        // Just like spawning the snake head</code>
+<code>        fruitCoords = generateRandomCoords();</code>
+<code>        fruitExists = true;</code>
+<code>    }</code>
+</pre>
+<pre><code>	  // At this point we always have a fruit</code>
+<code>    draw.fillStyle = &quot;green&quot;; // It&apos;s an apple!</code>
+<code>    draw.fillRect( fruitCoords[0], fruitCoords[1], unit, unit );</code>
+<code>}</code>
+</pre>
+<h4>Tasty Fruit: Noming</h4>
+
+<p><code></code>Before the snake can eat the fruit and grow, it needs to know whether it has the fruit in its mouth. To do this, we need to check the coordinates of the head against the coordinates of the fruit. The `hitCheck()` function:</p>
+
+<pre><code>/**</code>
+<code> * Hit Check</code>
+<code> *</code>
+<code> * This function checks whether two sets of coordinates (and their</code>
+<code> * widths|heights) are overlapping each other.</code>
+<code> *</code>
+<code> * Each parameter is an array consisting of:</code>
+<code> *</code>
+<code> *      [0] the x|y coordinate of the shape</code>
+<code> *      [1] the x|y coordinate plus the width|height of the shape.</code>
+<code> *</code>
+<code> * How it&apos;s used:</code>
+<code> *</code>
+<code> *      var snakeHead = [ [ coords[0], coords[0] + unit ], [ coords[1], coords[1] + unit ] ];</code>
+<code> *      var fruit = [ [ fruitCoords[0], fruitCoords[0] + unit ], [ fruitCoords[1], fruitCoords[1] + unit ] ];</code>
+<code> *</code>
+<code> *      var hitX = hitCheck( snakeHead[0], fruit[0] );</code>
+<code> *      var hitY = hitCheck( snakeHead[1], fruit[1] );</code>
+<code> *</code>
+<code> *      var hit = hitX &amp;&amp; hitY;</code>
+<code> *</code>
+<code> *      if( hit ) {</code>
+<code> *          Do stuff</code>
+<code> *      }</code>
+<code> *</code>
+<code> *</code>
+<code> * @param  array[ x|y, x+w|y+h ]</code>
+<code> * @param  array[ x|y, x+w|y+h ]</code>
+<code> * @return bool</code>
+<code> */</code>
+<code>function hitCheck( coords, fruitCoords ) {</code>
+</pre>
+<pre><code>    if( coords[0] &lt; fruitCoords[0] ) {</code>
+<code>        var a = coords;</code>
+<code>    } else {</code>
+<code>        var a = fruitCoords;</code>
+<code>    }</code>
+</pre>
+<pre><code>    if( coords[0] &lt; fruitCoords[0] ) {</code>
+<code>        var b = fruitCoords;</code>
+<code>    } else {</code>
+<code>        var b = coords;</code>
+<code>    }</code>
+</pre>
+<pre><code>    /**</code>
+<code>     * If the smallest given x|y+w coordinate is more than the biggest</code>
+<code>     * given x|y coordinate</code>
+<code>     *</code>
+<code>     *      OR</code>
+<code>     *</code>
+<code>     * The smallest given x|y coordinate is equal to the largest given</code>
+<code>     * x|y coordinate.</code>
+<code>     *</code>
+<code>     * They&apos;re overlapping</code>
+<code>     */</code>
+<code>    if( a[1] &gt; b[0] || a[0] === b[0] ) {</code>
+<code>        return true;</code>
+<code>    } else {</code>
+<code>        return false;</code>
+<code>    }</code>
+</pre>
+<pre><code>}</code>
+</pre>
+<p><code></code>We then call this function inside our `fruitHandler()` :</p>
+
+<pre><code>/**</code>
+<code>* Fruit Handler</code>
+<code>*</code>
+<code>* Function checks whether snake has eaten fruit and calls generation of</code>
+<code>* fruit when it there is no fruit on page.</code>
+<code>*/</code>
+<code>function fruitHandler() {</code>
+<code>   // If fruitExists is false...</code>
+<code>   if( ! fruitExists ) {</code>
+<code>       // Just like spawning the snake head</code>
+<code>       fruitCoords = generateRandomCoords();</code>
+<code>       fruitExists = true;</code>
+<code>   }</code>
+</pre>
+<pre><code>	 // At this point we always have a fruit</code>
+<code>   draw.fillStyle = &quot;green&quot;; // It&apos;s an apple!</code>
+<code>   draw.fillRect( fruitCoords[0], fruitCoords[1], unit, unit );</code>
+</pre>
+<pre><code>   // Check whether the snake has eaten the fruit!</code>
+<code>   var snakeHead = [ [ coords[0], coords[0] + unit ], [ coords[1], coords[1] + unit ] ];</code>
+<code>   var fruit = [ [ fruitCoords[0], fruitCoords[0] + unit ], [ fruitCoords[1], fruitCoords[1] + unit ] ];</code>
+</pre>
+<pre><code>   var hitX = hitCheck( snakeHead[0], fruit[0] );</code>
+<code>   var hitY = hitCheck( snakeHead[1], fruit[1] );</code>
+</pre>
+<pre><code>   var hit = hitX &amp;&amp; hitY;</code>
+</pre>
+<pre><code>   if( hit ) {</code>
+<code>       // Clear the fruit from the canvas</code>
+<code>       draw.clearRect( fruitCoords[0], fruitCoords[1], unit, unit );</code>
+<code>       fruitExists = false;</code>
+</pre>
+<pre><code>       // Draw in the snake&apos;s head (we just cleared that section of the canvas)</code>
+<code>       draw.fillStyle = &quot;rgb( 20, 151, 245)&quot;;</code>
+<code>       draw.fillRect( fruitCoords[0], fruitCoords[1], unit, unit );</code>
+<code>   }</code>
+<code>}</code>
+</pre>
+<h4>Tasty Fruit: Growing &amp; Speeding Up</h4>
+
+<p>Growing the snake is rather simple. Appending to the if-statement above:</p>
+
+<pre><code>       // Grow the snake by adding to the segments array</code>
+<code>       segments.push( toString( segments.length + 1 ) );</code>
+</pre>
+<p>Speeding up the game is as simple as setting faster timeouts back in the loop. Here is our old timeout code:</p>
+
+<pre><code>/**</code>
+<code> * This timeout will call its parent function, tick(), ever 100ms, thus</code>
+<code> * looping on itself</code>
+<code> */</code>
+<code>setTimeout( function() { tick() }, 100 );</code>
+</pre>
+<p><code></code>If we replace 100 with a variable, we can then modify it when we're growing our snake in the `fruitHandler()` . The variable:</p>
+
+<pre><code>/**</code>
+<code> * tick speed</code>
+<code> *</code>
+<code> * Int controls how fast the game &quot;ticks&quot;. Starts at 100</code>
+<code> */</code>
+<code>var tickSpeed = 100;</code>
+</pre>
+<p>The modified timeout:</p>
+
+<pre><code> setTimeout( function() { tick() }, tickSpeed );</code>
+</pre>
+<p><code></code>This is a rather crude way of speeding things up, so please experiment (appended to the if-statement in `fruitHandler()` ):</p>
+
+<pre><code>if( tickSpeed &gt; 40 ) {</code>
+<code>    tickSpeed -= 10;</code>
+<code>}</code>
+</pre>
+<p>Two more steps left, if your code isn't working <a href=" fruit.js " title="">here's what I've got so far</a>.</p>
+
+<h3>Step 6: Detecting Cannibalism</h3>
+
+<p>The penultimate step is to check whether the snake's head is eating part of its tail. Just like we did with the fruit, we're going to check whether the head is overlapping with any of the body segments:</p>
+
+<pre><code>/**</code>
+<code> * Tail Bite Handler</code>
+<code> *</code>
+<code> * Checks to see whether snake has bitten itself.</code>
+<code> */</code>
+<code>function tailBiteCheck() {</code>
+<code>    var snakeHead = [ [ coords[0], coords[0] + unit ], [ coords[1], coords[1] + unit ] ];</code>
+</pre>
+<pre><code>    // Loop over all of the segments in the snake&apos;s tail</code>
+<code>    for( i = 0; i &lt; segments.length - 1; i++ ) {</code>
+<code>        var tailSegment = [ [ pastCoords[i][0], pastCoords[i][0] + unit ], [ pastCoords[i][1], pastCoords[i][1] + unit ] ];</code>
+</pre>
+<pre><code>        var hitX = hitCheck( snakeHead[0], tailSegment[0] );</code>
+<code>        var hitY = hitCheck( snakeHead[1], tailSegment[1] );</code>
+<code>        var hit = hitX &amp;&amp; hitY;</code>
+</pre>
+<pre><code>        if( hit ) {</code>
+<code>            //... </code>
+<code>        }</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<p>Just like the other functions, this needs to be called every time the game loops:</p>
+
+<pre><code>function tick() {</code>
+<code>    // ...</code>
+</pre>
+<pre><code>    updateCoords( coords );</code>
+<code>    drawSnake( coords );</code>
+<code>    fruitHandler();</code>
+<code>    tailBiteCheck();</code>
+</pre>
+<pre><code>    // ...</code>
+<code>}</code>
+</pre>
+
+<h3>Step 7: Resetting The Game &amp; Scoring</h3>
+
+<p><code></code>You'll see in our `tailBiteCheck()` function there's an empty if-statement that runs if the snake is eating part itself. When this occurs, we'll want to reset the game back to its starting conditions.</p>
+
+<pre><code>/**</code>
+<code> * Reset</code>
+<code> *</code>
+<code> * Resets game</code>
+<code> */</code>
+<code>function reset() {</code>
+</pre>
+<pre><code>    alert( &quot;Game Over&quot; );</code>
+</pre>
+<pre><code>    // Clean our arrays and reset the tickSpeed</code>
+<code>    segments.splice( 1, segments.length - 1 );</code>
+<code>    pastCoords.splice( 1, pastCoords.length - 1 );</code>
+<code>    tickSpeed = 100;</code>
+</pre>
+<pre><code>    // Generate new coordinates for the snake</code>
+<code>    var newCoords = generateRandomCoords();</code>
+<code>    coords = newCoords;</code>
+<code>}</code>
+</pre>
+<p><code></code><code></code> ``reset()`` will need to be called in the `tailBiteCheck()` function, so:</p>
+
+<pre><code> // ...</code>
+</pre>
+<pre><code>if( hit ) {</code>
+<code>    reset();</code>
+<code>}</code>
+</pre>
+<pre><code>// ...</code>
+</pre>
+<p><a href="tail-bite-reset.js" title="">Here's all of the javascript we've written so far</a>.</p>
+
+<h4>Scoring</h4>
+
+<p>Scoring requires us to return to our html file and append some code that will allow us to show the player their score:</p>
+
+<pre><code>&lt;canvas id=&quot;canvas&quot; width=&quot;800&quot; height=&quot;600&quot; style=&quot;border: 1px solid</code>
+<code>gray&quot;&gt;&lt;/canvas&gt;</code>
+</pre>
+<pre><code>&lt;section id=&quot;scoring&quot;&gt;</code>
+<code>    &lt;p&gt;Score: &lt;span class=&quot;score&quot;&gt;0&lt;/span&gt;&lt;/p&gt;</code>
+<code>    &lt;p&gt;High Score: &lt;span class=&quot;high-score&quot;&gt;0&lt;/span&gt;&lt;/p&gt;</code>
+<code>&lt;/section&gt;</code>
+</pre>
+<h5>Scoring: Variables</h5>
+
+<p>Back in our javascript file, we need to setup the variables required for scoring:</p>
+
+<pre><code>/**</code>
+<code> * Score Increment</code>
+<code> *</code>
+<code> * The amount the score is incremented for every fruit eaten</code>
+<code> */</code>
+<code>var scoreIncrement = 1;</code>
+</pre>
+<pre><code>/**</code>
+<code> * Player&apos;s Score</code>
+<code> *</code>
+<code> * Int keeps track of player&apos;s current score</code>
+<code> */</code>
+<code>var score = 0;</code>
+</pre>
+<pre><code>/**</code>
+<code> * high score</code>
+<code> *</code>
+<code> * Int keeps track of player&apos;s highest score</code>
+<code> */</code>
+<code>var highScore = 0;</code>
+</pre>
+<h5>Scoring: Logic</h5>
+
+<p><code></code><code></code><code></code>The scoring aspect of snake is really simple. When the snake eats a fruit, the `score` is increased by the amount defined in our `scoreIncrement` variable. If this score is now more than the highest recorded score, update our `highScore` variable as well. </p>
+
+<p>In practice, our update score function looks like this:</p>
+
+<pre><code>/**</code>
+<code> * Update Score	</code>
+<code> *</code>
+<code> * This updates the player&apos;s score each time the snake eat&apos;s something.</code>
+<code> *</code>
+<code> */</code>
+<code>function updateScore() {</code>
+<code>    // Increment the score and update our HTML</code>
+<code>    score += scoreIncrement;</code>
+<code>    $( &apos;.score&apos; ).html( score );</code>
+</pre>
+<pre><code>    // If our score is the highest yet, update our high score</code>
+<code>    if( score &gt; highScore ) {</code>
+<code>        highScore = score;</code>
+<code>        $( &apos;.high-score&apos; ).html( highScore );</code>
+<code>    }</code>
+<code>}</code>
+</pre>
+<p><code></code><code></code>The `updateScore()` function needs to be called when the snake has eaten a fruit, so back in our `fruitHandler()` if-statement:</p>
+
+<pre><code>// ... </code>
+</pre>
+<pre><code>    if( hit ) {</code>
+</pre>
+<pre><code>        // ...</code>
+</pre>
+<pre><code>        // Speed it up</code>
+<code>        if( tickSpeed &gt; 40 ) {</code>
+<code>            tickSpeed -= 10;</code>
+<code>        }</code>
+</pre>
+<pre><code>        updateScore();</code>
+<code>    }</code>
+</pre>
+<pre><code>// ...</code>
+</pre>
+<p><code></code>Finally, we need to add some code to our `reset()` function that resets the score upon game over:</p>
+
+<pre><code>function reset() {</code>
+</pre>
+<pre><code>    // ...</code>
+</pre>
+<pre><code>    tickSpeed = 100;</code>
+</pre>
+<pre><code>    // Reset score</code>
+<code>    score = 0;</code>
+<code>    $( &apos;.score&apos; ).html( score );</code>
+</pre>
+<pre><code>    // ...</code>
+</pre>
+<pre><code>}</code>
+</pre>
+<p>That's it! You've made snake in HTML5 Canvas. All of <a href=" snake-in-html5-canvas.zip " title="">the code is available for download (zip)</a>.</p>
+
+<p><h2 id="libraries">Libraries</h2></p>
+
+<p>There are a couple of libraries that provide hooks which make writing canvas based experiences much faster, easier, and perhaps less frustrating.</p>
+
+<ul><li><a href="http://ejohn.org/blog/processingjs/" title="">John Resig's Processing.js</a>, which is a port of the processing language to javascript.
+</li></ul>
+<ul><li><a href="http://easeljs.com/" title="">EaselJS</a></li></ul>
+  </body>
+</html>
