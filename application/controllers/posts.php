@@ -23,11 +23,7 @@ class Posts extends CI_Controller {
 
         $posts = $this->posts_model->crawl();
 
-        if( $posts = $this->posts_model->get() )
-        {
-            $data['posts'] = $posts;
-        }
-
+        $data['posts'] = $posts;
         $data['title'] = 'Payload';
         $data['view'] = 'blog/home';
         $this->load->view( 'includes/template', $data );
