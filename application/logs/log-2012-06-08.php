@@ -5569,3 +5569,536 @@ DEBUG - 2012-06-08 07:53:06 --> File loaded: application/views/includes/footer.p
 DEBUG - 2012-06-08 07:53:06 --> File loaded: application/views/includes/template.php
 DEBUG - 2012-06-08 07:53:06 --> Final output sent to browser
 DEBUG - 2012-06-08 07:53:06 --> Total execution time: 0.0138
+DEBUG - 2012-06-08 10:02:01 --> Config Class Initialized
+DEBUG - 2012-06-08 10:02:01 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:02:01 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:02:01 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:02:01 --> URI Class Initialized
+DEBUG - 2012-06-08 10:02:01 --> Router Class Initialized
+DEBUG - 2012-06-08 10:02:01 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:02:01 --> Output Class Initialized
+DEBUG - 2012-06-08 10:02:01 --> Security Class Initialized
+DEBUG - 2012-06-08 10:02:01 --> Input Class Initialized
+DEBUG - 2012-06-08 10:02:01 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:02:01 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:02:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:02:01 --> Language Class Initialized
+DEBUG - 2012-06-08 10:02:02 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:02:02 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:02:02 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:02:02 --> Model Class Initialized
+DEBUG - 2012-06-08 10:02:03 --> Model Class Initialized
+DEBUG - 2012-06-08 10:02:03 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:02:03 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:02:03 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 10:02:03 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 10:02:03 --> DIFF:: null
+DEBUG - 2012-06-08 10:02:04 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:02:04 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:02:04 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:02:04 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:02:04 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:02:04 --> Final output sent to browser
+DEBUG - 2012-06-08 10:02:04 --> Total execution time: 3.7387
+DEBUG - 2012-06-08 10:02:45 --> Config Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:02:45 --> URI Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Router Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:02:45 --> Output Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Security Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Input Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:02:45 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:02:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:02:45 --> Language Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Model Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Model Class Initialized
+DEBUG - 2012-06-08 10:02:45 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:02:45 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+ERROR - 2012-06-08 10:02:45 --> Severity: Warning  --> sqlite_query() [<a href='function.sqlite-query'>function.sqlite-query</a>]: no such table: sitemap /Applications/MAMP/htdocs/pl/system/database/drivers/sqlite/sqlite_driver.php 170
+ERROR - 2012-06-08 10:02:45 --> Severity: Warning  --> sqlite_query() [<a href='function.sqlite-query'>function.sqlite-query</a>]: cannot rollback - no transaction is active /Applications/MAMP/htdocs/pl/system/database/drivers/sqlite/sqlite_driver.php 170
+DEBUG - 2012-06-08 10:02:45 --> DB Transaction Failure
+ERROR - 2012-06-08 10:02:45 --> Query error: SQL logic error or missing database
+DEBUG - 2012-06-08 10:02:45 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2012-06-08 10:02:49 --> Config Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:02:49 --> URI Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Router Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:02:49 --> Output Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Security Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Input Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:02:49 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:02:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:02:49 --> Language Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Model Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Model Class Initialized
+DEBUG - 2012-06-08 10:02:49 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:02:49 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+ERROR - 2012-06-08 10:02:49 --> Severity: Warning  --> sqlite_query() [<a href='function.sqlite-query'>function.sqlite-query</a>]: no such table: sitemap /Applications/MAMP/htdocs/pl/system/database/drivers/sqlite/sqlite_driver.php 170
+ERROR - 2012-06-08 10:02:49 --> Severity: Warning  --> sqlite_query() [<a href='function.sqlite-query'>function.sqlite-query</a>]: cannot rollback - no transaction is active /Applications/MAMP/htdocs/pl/system/database/drivers/sqlite/sqlite_driver.php 170
+DEBUG - 2012-06-08 10:02:49 --> DB Transaction Failure
+ERROR - 2012-06-08 10:02:49 --> Query error: SQL logic error or missing database
+DEBUG - 2012-06-08 10:02:49 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2012-06-08 10:02:57 --> Config Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:02:57 --> URI Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Router Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:02:57 --> Output Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Security Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Input Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:02:57 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:02:57 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:02:57 --> Language Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Model Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Model Class Initialized
+DEBUG - 2012-06-08 10:02:57 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:02:57 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:02:57 --> SITEMAP from DB: ["canvas-snake"]
+DEBUG - 2012-06-08 10:02:57 --> DIFF:: []
+DEBUG - 2012-06-08 10:02:57 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:02:57 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:02:57 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:02:57 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:02:57 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:02:57 --> Final output sent to browser
+DEBUG - 2012-06-08 10:02:57 --> Total execution time: 0.4432
+DEBUG - 2012-06-08 10:41:22 --> Config Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:41:22 --> URI Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Router Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:41:22 --> Output Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Security Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Input Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:41:22 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:41:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:41:22 --> Language Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Model Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Model Class Initialized
+DEBUG - 2012-06-08 10:41:22 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:41:22 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:41:22 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 10:41:22 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 10:41:22 --> DIFF:: null
+DEBUG - 2012-06-08 10:41:22 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:41:22 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:41:22 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:41:23 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:41:23 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:41:23 --> Final output sent to browser
+DEBUG - 2012-06-08 10:41:23 --> Total execution time: 1.0275
+DEBUG - 2012-06-08 10:41:56 --> Config Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:41:56 --> URI Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Router Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:41:56 --> Output Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Security Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Input Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:41:56 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:41:56 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:41:56 --> Language Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Model Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Model Class Initialized
+DEBUG - 2012-06-08 10:41:56 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:41:56 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:41:56 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 10:41:56 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 10:41:56 --> DIFF:: null
+DEBUG - 2012-06-08 10:41:56 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:41:56 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:41:56 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:41:56 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:41:56 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:41:56 --> Final output sent to browser
+DEBUG - 2012-06-08 10:41:56 --> Total execution time: 0.2381
+DEBUG - 2012-06-08 10:41:58 --> Config Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:41:58 --> URI Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Router Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:41:58 --> Output Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Security Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Input Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:41:58 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:41:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:41:58 --> Language Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Model Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Model Class Initialized
+DEBUG - 2012-06-08 10:41:58 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:41:58 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:41:58 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 10:41:58 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 10:41:58 --> DIFF:: null
+DEBUG - 2012-06-08 10:41:58 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:41:58 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:41:58 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:41:58 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:41:58 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:41:58 --> Final output sent to browser
+DEBUG - 2012-06-08 10:41:58 --> Total execution time: 0.0093
+DEBUG - 2012-06-08 10:42:00 --> Config Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:42:00 --> URI Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Router Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:42:00 --> Output Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Security Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Input Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:00 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:42:00 --> Language Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:42:00 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:42:00 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 10:42:00 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 10:42:00 --> DIFF:: null
+DEBUG - 2012-06-08 10:42:00 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:42:00 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:42:00 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:42:00 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:42:00 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:42:00 --> Final output sent to browser
+DEBUG - 2012-06-08 10:42:00 --> Total execution time: 0.0093
+DEBUG - 2012-06-08 10:42:00 --> Config Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:42:00 --> URI Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Router Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:42:00 --> Output Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Security Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Input Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:00 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:42:00 --> Language Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:00 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:42:00 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:42:00 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 10:42:00 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 10:42:00 --> DIFF:: null
+DEBUG - 2012-06-08 10:42:00 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:42:00 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:42:00 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:42:00 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:42:00 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:42:00 --> Final output sent to browser
+DEBUG - 2012-06-08 10:42:00 --> Total execution time: 0.0085
+DEBUG - 2012-06-08 10:42:08 --> Config Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:42:08 --> URI Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Router Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:42:08 --> Output Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Security Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Input Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:08 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:08 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:42:08 --> Language Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:08 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:42:08 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:42:08 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 10:42:08 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 10:42:08 --> DIFF:: null
+DEBUG - 2012-06-08 10:42:08 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:42:08 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:42:08 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:42:08 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:42:08 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:42:08 --> Final output sent to browser
+DEBUG - 2012-06-08 10:42:08 --> Total execution time: 0.0085
+DEBUG - 2012-06-08 10:42:09 --> Config Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:42:09 --> URI Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Router Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:42:09 --> Output Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Security Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Input Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:09 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:09 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:42:09 --> Language Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:09 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:42:09 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:42:09 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 10:42:09 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 10:42:09 --> DIFF:: null
+DEBUG - 2012-06-08 10:42:09 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:42:09 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:42:09 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:42:09 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:42:09 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:42:09 --> Final output sent to browser
+DEBUG - 2012-06-08 10:42:09 --> Total execution time: 0.0090
+DEBUG - 2012-06-08 10:42:17 --> Config Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:42:17 --> URI Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Router Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:42:17 --> Output Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Security Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Input Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:17 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:17 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:42:17 --> Language Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:17 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:42:17 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+ERROR - 2012-06-08 10:42:17 --> Severity: Warning  --> sqlite_query() [<a href='function.sqlite-query'>function.sqlite-query</a>]: no such table: sitemap /Applications/MAMP/htdocs/pl/system/database/drivers/sqlite/sqlite_driver.php 170
+ERROR - 2012-06-08 10:42:17 --> Severity: Warning  --> sqlite_query() [<a href='function.sqlite-query'>function.sqlite-query</a>]: cannot rollback - no transaction is active /Applications/MAMP/htdocs/pl/system/database/drivers/sqlite/sqlite_driver.php 170
+DEBUG - 2012-06-08 10:42:17 --> DB Transaction Failure
+ERROR - 2012-06-08 10:42:17 --> Query error: SQL logic error or missing database
+DEBUG - 2012-06-08 10:42:17 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2012-06-08 10:42:19 --> Config Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:42:19 --> URI Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Router Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:42:19 --> Output Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Security Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Input Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:19 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:19 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:42:19 --> Language Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:19 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:42:19 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+ERROR - 2012-06-08 10:42:19 --> Severity: Warning  --> sqlite_query() [<a href='function.sqlite-query'>function.sqlite-query</a>]: no such table: sitemap /Applications/MAMP/htdocs/pl/system/database/drivers/sqlite/sqlite_driver.php 170
+ERROR - 2012-06-08 10:42:19 --> Severity: Warning  --> sqlite_query() [<a href='function.sqlite-query'>function.sqlite-query</a>]: cannot rollback - no transaction is active /Applications/MAMP/htdocs/pl/system/database/drivers/sqlite/sqlite_driver.php 170
+DEBUG - 2012-06-08 10:42:19 --> DB Transaction Failure
+ERROR - 2012-06-08 10:42:19 --> Query error: SQL logic error or missing database
+DEBUG - 2012-06-08 10:42:19 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2012-06-08 10:42:22 --> Config Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Hooks Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 10:42:22 --> URI Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Router Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 10:42:22 --> Output Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Security Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Input Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:22 --> XSS Filtering completed
+DEBUG - 2012-06-08 10:42:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 10:42:22 --> Language Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Loader Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Controller Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Model Class Initialized
+DEBUG - 2012-06-08 10:42:22 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 10:42:22 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 10:42:22 --> SITEMAP from DB: ["canvas-snake"]
+DEBUG - 2012-06-08 10:42:22 --> DIFF:: []
+DEBUG - 2012-06-08 10:42:22 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 10:42:22 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 10:42:22 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 10:42:22 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 10:42:22 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 10:42:22 --> Final output sent to browser
+DEBUG - 2012-06-08 10:42:22 --> Total execution time: 0.0082
+DEBUG - 2012-06-08 16:17:58 --> Config Class Initialized
+DEBUG - 2012-06-08 16:17:58 --> Hooks Class Initialized
+DEBUG - 2012-06-08 16:17:58 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 16:17:58 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 16:17:58 --> URI Class Initialized
+DEBUG - 2012-06-08 16:17:58 --> Router Class Initialized
+DEBUG - 2012-06-08 16:17:58 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 16:17:59 --> Output Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> Security Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> Input Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> XSS Filtering completed
+DEBUG - 2012-06-08 16:17:59 --> XSS Filtering completed
+DEBUG - 2012-06-08 16:17:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 16:17:59 --> Language Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> Loader Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> Controller Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> Model Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> Model Class Initialized
+DEBUG - 2012-06-08 16:17:59 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 16:17:59 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 16:17:59 --> SITEMAP from DB: 3
+ERROR - 2012-06-08 16:17:59 --> Severity: Warning  --> array_diff() [<a href='function.array-diff'>function.array-diff</a>]: Argument #2 is not an array /Applications/MAMP/htdocs/pl/application/models/posts_model.php 61
+DEBUG - 2012-06-08 16:17:59 --> DIFF:: null
+DEBUG - 2012-06-08 16:17:59 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 16:18:00 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 16:18:00 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 16:18:00 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 16:18:00 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 16:18:00 --> Final output sent to browser
+DEBUG - 2012-06-08 16:18:00 --> Total execution time: 1.6235
+DEBUG - 2012-06-08 16:26:30 --> Config Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Hooks Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 16:26:30 --> URI Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Router Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 16:26:30 --> Output Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Security Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Input Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> XSS Filtering completed
+DEBUG - 2012-06-08 16:26:30 --> XSS Filtering completed
+DEBUG - 2012-06-08 16:26:30 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 16:26:30 --> Language Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Loader Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Controller Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Model Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Model Class Initialized
+DEBUG - 2012-06-08 16:26:30 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 16:26:30 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 16:26:30 --> SITEMAP from DB: ["canvas-snake"]
+DEBUG - 2012-06-08 16:26:30 --> DIFF:: []
+DEBUG - 2012-06-08 16:26:30 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 16:26:30 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 16:26:30 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 16:26:30 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 16:26:30 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 16:26:30 --> Final output sent to browser
+DEBUG - 2012-06-08 16:26:30 --> Total execution time: 0.5070
+DEBUG - 2012-06-08 16:35:57 --> Config Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Hooks Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 16:35:57 --> URI Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Router Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 16:35:57 --> Output Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Security Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Input Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> XSS Filtering completed
+DEBUG - 2012-06-08 16:35:57 --> XSS Filtering completed
+DEBUG - 2012-06-08 16:35:57 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 16:35:57 --> Language Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Loader Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Controller Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Model Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Model Class Initialized
+DEBUG - 2012-06-08 16:35:57 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 16:35:57 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 16:35:57 --> SITEMAP from DB: ["canvas-snake"]
+DEBUG - 2012-06-08 16:35:57 --> DIFF:: []
+DEBUG - 2012-06-08 16:35:57 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 16:35:57 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 16:35:57 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 16:35:57 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 16:35:57 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 16:35:57 --> Final output sent to browser
+DEBUG - 2012-06-08 16:35:57 --> Total execution time: 0.0784
+DEBUG - 2012-06-08 16:35:59 --> Config Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Hooks Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Utf8 Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> UTF-8 Support Enabled
+DEBUG - 2012-06-08 16:35:59 --> URI Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Router Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> No URI present. Default controller set.
+DEBUG - 2012-06-08 16:35:59 --> Output Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Security Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Input Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> XSS Filtering completed
+DEBUG - 2012-06-08 16:35:59 --> XSS Filtering completed
+DEBUG - 2012-06-08 16:35:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-08 16:35:59 --> Language Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Loader Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Database Driver Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Controller Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Model Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Model Class Initialized
+DEBUG - 2012-06-08 16:35:59 --> Helper loaded: file_helper
+DEBUG - 2012-06-08 16:35:59 --> POSTS: {"canvas-snake":{"name":"canvas-snake","server_path":"\/Applications\/MAMP\/htdocs\/pl\/posted\/canvas-snake","size":374,"date":1339138386,"relative_path":".\/posted\/"}}
+DEBUG - 2012-06-08 16:35:59 --> SITEMAP from DB: ["canvas-snake"]
+DEBUG - 2012-06-08 16:35:59 --> DIFF:: []
+DEBUG - 2012-06-08 16:35:59 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-06-08 16:35:59 --> Helper loaded: url_helper
+DEBUG - 2012-06-08 16:35:59 --> File loaded: application/views/blog/home.php
+DEBUG - 2012-06-08 16:35:59 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-06-08 16:35:59 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-06-08 16:35:59 --> Final output sent to browser
+DEBUG - 2012-06-08 16:35:59 --> Total execution time: 0.0103
