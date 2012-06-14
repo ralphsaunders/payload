@@ -30,11 +30,18 @@ class Posts_model extends CI_Model {
     /**
      * Crawl
      *
-     * Crawls /posted/ and returns array
+     * Crawls /posted/ renaming directories and html files for pretty urls.
+     *
+     * @param  int
+     * @return array
      */
     public function crawl( $from = 0 )
     {
         $root = './posted/';
+        $absolute_root = realpath( $root );
+
+        log_message( 'debug', 'Absolute Root: ' . $absolute_root );
+
         $this->load->helper( 'naming' );
         $this->load->helper( 'file' );
         $posts = get_dir_file_info( $root, $top_level_only = true );
@@ -43,17 +50,25 @@ class Posts_model extends CI_Model {
         log_message( 'debug', 'Posts:: ' . json_encode( $posts ) );
 
         /**
-         * any Old Name.html => index.html
+         * Loop through directories in the $root directory formatting directory
+         * names for pretty URLs as well as renaming .html files to
+         * 'index.html'.
          */
         foreach( $posts as $post )
         {
-            $post_files = get_filenames( $root . $post['name'] );
+            $post_files = get_filenames( $root . $post['name'], $prepend_paths = true );
 
             log_message( 'debug', 'Post Files:: ' . json_encode( $post_files ) );
 
             foreach( $post_files as $filename )
             {
-                $file_info = PATHINFO( $root . $post['name'] . $filename );
+                $filename = str_replace( $absolute_root, '', $filename );
+
+                log_message( 'debug', 'Filename: ' . $filename );
+
+                $file_info = PATHINFO( $root . $filename );
+
+                log_message( 'debug', 'Fileinfo: ' . json_encode( $file_info ) );
 
                 if($file_info['extension'] == 'html' && $file_info['filename'] == 'index' )
                 {
@@ -61,7 +76,7 @@ class Posts_model extends CI_Model {
                 }
                 elseif( $file_info['extension'] == 'html' )
                 {
-                    rename( $root . $post['name'] . '/' . $filename, $root . $post['name'] . '/' . 'index.html' );
+                    rename( $root . $filename, $file_info['dirname'] . '/' . 'index.html' );
                     break;
                 }
             }
