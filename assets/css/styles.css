@@ -1,0 +1,80 @@
+@import "reset.css";
+
+/**
+ * Typography
+ */
+
+/** General **/
+body {
+    font:14px/1.5 Georgia, Serif;
+    background-color:#EDEDED;
+}
+
+ul, ol, p, pre {
+    margin-bottom:1.5em;
+}
+
+code {
+    font:0.755em/1.5 Courier, Monospace;
+}
+
+/** Headings **/
+h1 {
+    font:3.2em/1 Georgia, Serif;
+    letter-spacing:-.03em;
+    margin-bottom:.5em;
+}
+
+h2 {
+    font:2.618em/1 Georgia, Serif;
+    letter-spacing:-.03em;
+    margin-bottom:.5em;
+}
+
+h3 {
+    font:1.978em/1.5 Georgia, Serif;
+    letter-spacing:-.03em;
+    margin:.5em 0;
+}
+
+h4 {
+    font:bold 1.618em/1.5 Georgia, Serif;
+    letter-spacing:-.03em;
+    margin:.5em 0;
+}
+
+h5 {
+    font:bold 1.222em/1.5 Georgia, Serif;
+    letter-spacing:-.03em;
+    margin:.5em 0;
+}
+
+h6 {
+    font:italic 1em/1.5 Georgia, Serif;
+    margin:.5em 0;
+}
+
+li h3 {
+    margin:.2em 0;
+}
+
+/**
+ * Layout
+ */
+.pl-posts {
+    width:750px;
+    margin:2em 0 0 3em;
+}
+
+.pl-post-list {
+    list-style:none;
+}
+
+.pl-post-list a {
+    text-decoration:none;
+    color:#E87E0C;
+}
+
+.pl-post-list a:hover {
+    color:#F2AA79;
+}
