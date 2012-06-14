@@ -37,6 +37,8 @@ class Posts_model extends CI_Model {
      */
     public function crawl( $from = 0 )
     {
+        $this->benchmark->mark( 'crawl_start' );
+
         $root = './posted/';
         $absolute_root = realpath( $root );
 
@@ -48,6 +50,8 @@ class Posts_model extends CI_Model {
         $posts = array_slice( $posts, $from, 25 );
 
         log_message( 'debug', 'Posts:: ' . json_encode( $posts ) );
+
+        $this->benchmark->mark( 'post_loop_start' );
 
         /**
          * Loop through directories in the $root directory formatting directory
@@ -85,8 +89,12 @@ class Posts_model extends CI_Model {
             $post_dirs[] = format_url( $post['name'] );
         }
 
+        $this->benchmark->mark( 'post_loop_end' );
+
         $posts = get_dir_file_info( $root, $top_level_only = true );
         $posts = array_slice( $posts, $from, 25 );
+
+        $this->benchmark->mark( 'crawl_end' );
 
         return $posts;
     }
