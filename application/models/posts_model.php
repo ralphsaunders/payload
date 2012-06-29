@@ -47,7 +47,6 @@ class Posts_model extends CI_Model {
         $this->load->helper( 'naming' );
         $this->load->helper( 'file' );
         $posts = get_dir_file_info( $root, $top_level_only = true );
-        $posts = array_slice( $posts, $from, 25 );
 
         log_message( 'debug', 'Posts:: ' . json_encode( $posts ) );
 
@@ -64,6 +63,9 @@ class Posts_model extends CI_Model {
 
             log_message( 'debug', 'Post Files:: ' . json_encode( $post_files ) );
 
+            /**
+             * Rename html files to index.html
+             */
             foreach( $post_files as $filename )
             {
                 $filename = str_replace( $absolute_root, '', $filename );
@@ -91,12 +93,107 @@ class Posts_model extends CI_Model {
 
         $this->benchmark->mark( 'post_loop_end' );
 
-        $posts = get_dir_file_info( $root, $top_level_only = true );
-        $posts = array_slice( $posts, $from, 25 );
+        // $posts = get_dir_file_info( $root, $top_level_only = true );
+
+        $posts = $this->_fetch_posts( $root );
+        log_message( 'debug', 'Fetched Posts:: ' . json_encode( $posts ) );
 
         $this->benchmark->mark( 'crawl_end' );
 
         return $posts;
+    }
+
+    /**
+     * Fetch Posts
+     *
+     * Returns an n-dimensional array of the directory structure from $root.
+     * Posts are nested according to their directory. The array containing the
+     * directory's files is assigned the key 'files', otherwise the key is
+     * always the directory's name. Example:
+     *
+     *      |~posted/
+     *        |~category/
+     *          |~a-post/
+     *            |-index.html
+     *            |-image.png
+     *            `-notes.md
+     *          |~another-post/
+     *            |-index.html
+     *            `-styles.css
+     *        |~another-category/
+     *          |~third-post/
+     *
+     *        ...
+     *
+     *      array(
+     *          'posted' => array(
+     *              'category' => array(
+     *                  'a-post' => array(
+     *                      'files' => array(
+     *                          [0] => array(
+     *                              'dirname' => '/posted/category/a-post',
+     *                              'basename' => 'index.html',
+     *                              'extension' => 'html',
+     *                              'filename' => 'index'
+     *                          ),
+     *                          ...
+     *                      )
+     *                  ),
+     *                  ...
+     *              ),
+     *              ...
+     *          )
+     *      );
+     */
+    private function _fetch_posts( $root )
+    {
+        $dirs = scandir($root);
+
+        foreach($dirs as $dir)
+        {
+            if ($dir === '.' || $dir === '..')
+            {
+                continue;
+            }
+            elseif ( $dir[0] === '.' )
+            {
+                continue;
+            }
+
+            if( is_dir( $root . $dir ) )
+            {
+                $files=scandir($root.$dir);
+            }
+            else
+            {
+                $result['files'][] = $root . $dir;
+                continue;
+            }
+
+            foreach ($files as $file)
+            {
+                if ($file === '.' || $file === '..')
+                {
+                    continue;
+                }
+                elseif( $file[0] === '.' )
+                {
+                    continue;
+                }
+                elseif( is_file( $root . $dir . '/' . $file ) )
+                {
+                    $result[$dir]['files'][] = $root.$dir.'/'.$file;
+                }
+                elseif( is_dir( $root . $dir . '/' . $file ) )
+                {
+                    $result[$dir][$file] = $this->_fetch_posts( $root . $dir . '/' . $file . '/' );
+                }
+            }
+        }
+
+
+
+        return $result;
     }
 
 }

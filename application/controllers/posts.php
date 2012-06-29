@@ -19,10 +19,13 @@ class Posts extends CI_Controller {
 	 */
 	public function index()
     {
-        //$this->output->enable_profiler( true );
+        $this->output->enable_profiler( true );
 
         $this->load->model( 'posts_model' );
         $posts = $this->posts_model->crawl();
+
+        $this->load->library( 'postutil' );
+        $posts = $this->postutil->list_posts_recursively( $posts );
 
         $data['posts'] = $posts;
         $data['title'] = 'Payload';

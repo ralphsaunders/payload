@@ -6,8 +6,7 @@
 
 /** General **/
 body {
-    font:14px/1.5 Georgia, Serif;
-    background-color:#EDEDED;
+    font:16px/1.5 Georgia, Serif;
 }
 
 ul, ol, p, pre {
@@ -18,29 +17,34 @@ code {
     font:0.755em/1.5 Courier, Monospace;
 }
 
+.pl-sidebar p, .pl-generic-sidebar p {
+    font:0.688em/1.5 Verdana, Sans-serif;
+}
+
 /** Headings **/
 h1 {
-    font:3.2em/1 Georgia, Serif;
+    font:300 2em/1 "acta-display", Georgia, Serif;
     letter-spacing:-.03em;
-    margin-bottom:.5em;
+    margin-bottom:1em;
+    text-transform:uppercase;
 }
 
 h2 {
-    font:2.618em/1 Georgia, Serif;
+    font:500 1.625em/1 "acta-display", Georgia, Serif;
     letter-spacing:-.03em;
-    margin-bottom:.5em;
+    margin:.5em 0;
 }
 
 h3 {
-    font:1.978em/1.5 Georgia, Serif;
+    font:300 1.5em/1.24 "acta-display", Georgia, Serif;
     letter-spacing:-.03em;
     margin:.5em 0;
 }
 
 h4 {
-    font:bold 1.618em/1.5 Georgia, Serif;
+    font:300 1.250em/1 "acta-display", Georgia, Serif;
     letter-spacing:-.03em;
-    margin:.5em 0;
+    margin:0 0 .5em 0;
 }
 
 h5 {
@@ -50,20 +54,60 @@ h5 {
 }
 
 h6 {
-    font:italic 1em/1.5 Georgia, Serif;
+    font:1em/1.5 "acta-display", Georgia, Serif;
     margin:.5em 0;
 }
 
 li h3 {
-    margin:.2em 0;
+    margin:.55em 0;
+}
+
+/**
+ * Form
+ */
+input, textarea {
+    background-color:#E6E6E6;
+    border:none;
+    padding:7px 10px;
+    border-radius:5px;
+    width:250px;
+    font:.750em/1.5 Georgia, Serif;
+}
+
+input[type="submit"] {
+    width:270px;
+    background-color:#4DA7E3;
+    color:#fff;
+    font:.750em/1.5 Helvetica, Arial, Sans-serif;
+}
+
+input[type="submit"]:hover {
+    cursor:pointer;
+    background-color:#348CC7;
 }
 
 /**
  * Layout
  */
+.pl-wrap {
+    width:960px;
+    margin:0 auto;
+    margin-top:3em;
+}
+
+.pl-sidebar {
+    width:120px;
+    margin:4.3em 3em 0 0;
+    float:left;
+}
+
+.pl-sidebar h6 {
+    margin:0;
+}
+
 .pl-posts {
+    float:left;
     width:750px;
-    margin:2em 0 0 3em;
 }
 
 .pl-post-list {
@@ -72,9 +116,43 @@ li h3 {
 
 .pl-post-list a {
     text-decoration:none;
-    color:#E87E0C;
+    color:#fff;
+    background:#000;
 }
 
 .pl-post-list a:hover {
-    color:#F2AA79;
+    background:#fff;
+    color:#000;
+}
+
+.pl-generic-sidebar {
+    width:120px;
+    margin:2em 3em 1em 0;
+    float:left;
+}
+
+.pl-main {
+    float:left;
+    width:450px;
+    margin-bottom:1.5em;
+}
+
+.pl-twitter {
+    font:1em/1 Helvetica, Sans-serif;
+    display:inline-block;
+    padding-right:5px;
+    vertical-align:-2px;
+    margin-left:-21px;
+}
+
+ul li {
+    margin-left:2em;
+}
+
+.pl-post-list li {
+    list-style:none;
+}
+
+.pl-posts > ul > li {
+    margin:0;
 }
