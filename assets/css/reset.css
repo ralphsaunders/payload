@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 /* General CSS Classes */
 .clear        { clear:both; }
 .left         { float:left; }
-.right        { float:right; }
+.right        { float:right!important; }
 .none         { float:none; }
 img.left      { margin-right:1em; margin-bottom:1em; }
 img.right     { margin-left:1em; margin-bottom:1em; }

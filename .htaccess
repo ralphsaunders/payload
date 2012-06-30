@@ -1,0 +1,24 @@
+##
+# !IMPORTANT!
+#
+# This .htaccess might not work for your setup. If it doesn't feel free
+# to open a ticket AS LONG as you provide your own .htaccess. I simply
+# will not fix problems related to a setup that's broken rather than
+# broken code.
+#
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine on
+
+    # Send request via index.php (again, not if its a real file or folder)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    <IfModule mod_php5.c>
+            RewriteRule ^(.*)$ index.php/$1 [L]
+    </IfModule>
+
+    <IfModule !mod_php5.c>
+            RewriteRule ^(.*)$ index.php?/$1 [L]
+    </IfModule>
+</IfModule>

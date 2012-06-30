@@ -71,7 +71,7 @@ class Postutil {
      * @param array
      * @param int
      */
-    public function list_posts_recursively( $posts, $nest_level = 0 )
+    public function list_posts_recursively( $posts = array(), $nest_level = 0 )
     {
         $list = '';
 

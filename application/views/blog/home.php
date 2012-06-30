@@ -1,6 +1,15 @@
+<?php
+
+if( !isset( $posts ) || empty( $posts ) )
+{
+    $this->load->view( 'setup/explain' );
+}
+else
+{
+?>
 <section class="pl-wrap">
     <section class="pl-sidebar">
-        <h6>I Design & Develop Things, Sometimes I Write About It Here</h6>
+        <p>I Design & Develop Things, Sometimes I Write About It Here</p>
     </section>
     <section class="pl-posts">
 
@@ -11,10 +20,6 @@
                 <?php echo $posts; ?>
             </li>
         </ul>
-
     </section>
 </section>
-
-<?php if( ! isset( $posts ) || empty( $posts ) ) : ?>
-You have no posts!
-<?php endif; ?>
+<?php } ?>

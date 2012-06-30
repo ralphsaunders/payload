@@ -191,9 +191,14 @@ class Posts_model extends CI_Model {
             }
         }
 
-
-
-        return $result;
+        if( isset( $result ) )
+        {
+            return $result;
+        }
+        else
+        {
+            return array();
+        }
     }
 
 }
