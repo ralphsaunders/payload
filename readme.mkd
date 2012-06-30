@@ -1,2 +1,0 @@
-# Payload
-##### Payload is a flatfile powered blogging engine.
