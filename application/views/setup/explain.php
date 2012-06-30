@@ -21,7 +21,6 @@
                 <ol>
                     <li><a href="#payload-for">What's Payload For?</a></li>
                     <li><a href="#use-payload">Using Payload</a></li>
-                    <li><a href="#modify-payload">Modifying Payload</a></li>
                 </ol>
             </aside>
 
@@ -131,14 +130,5 @@
                 <p class="pl-body">You can see that the names of the categories are derived directly from their directory names, as are the post titles.</p>
             </section>
         </section><!-- Closes 'Using Payload' Section -->
-
-        <section id="modify-payload">
-
-            <div class="pl-body">
-                <h2>Modifying Payload</h2>
-            </div>
-
-        </section>
-
     </article>
 </div>
