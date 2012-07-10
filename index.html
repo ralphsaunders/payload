@@ -1,3 +1,102 @@
-I think I broke github pages??
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Payload, Web Publishing for Web Designers & Developers
+        </title>
 
-<h1>Herp</h1>
+        <!-- Payload's Default CSS -->
+        <link href="assets/css/styles.css" type="text/css" rel="stylesheet">
+
+        <!-- Typekit -->
+        <script type="text/javascript" src="http://use.typekit.com/roi3hdr.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- Default Favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- Default iOS Device Icons -->
+        <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch-icon-retina.png" />
+        <link rel="apple-touch-icon" sizes="72x72"   href="assets/images/touch-icon-ipad.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch-icon-retina-ipad.png" />
+
+    </head>
+    <body class="grid">
+
+        <div class="pl-wrap">
+
+            <article>
+                <section id="intro" class="pl-section">
+
+                    <div class="pl-body" id="payload">
+                        <h1>What's Payload?</h1>
+
+                        <p>Payload is a web publishing system for web designers &amp; developers. Systems like Wordpress are great for publishing blog posts, but when it comes to publishing advanced web pages with interactive infographics, graphs, and games, they fall apart. Payload aims to fix this.</p>
+
+                    </div>
+                    <br class="clear">
+                </section>
+                <section id="how-payload-works" class="pl-section">
+
+                    <div class="pl-sidebar">
+                        <h3>Extending Payload</h3>
+
+                        <p>Payload was built to be easy to extend, see the <a
+                            href="./guides/extending-payload.html" title="">extending Payload guide</a>.</p>
+                    </div>
+
+                    <h1 class="pl-body">How it Works</h1>
+
+                    <div class="pl-body">
+                        <p>Payload indexes a special directory named `/posted`. Everything you put in that directory gets listed on the homepage of your payload instance.</p>
+                    </div>
+
+                    <br class="clear">
+                </section>
+                <section class="pl-section" id="use">
+                    <div class="pl-sidebar">
+                        <h3>Behaviours</h3>
+
+                        <p>For details on Payload's technical behaviours see
+                        <em><a href="./about#use-payload" title="">things you should know</a></em>.</p>
+                    </div>
+
+                    <div class="pl-body">
+                        <h1>How to Use it</h1>
+
+                        <p>Payload looks in /posted/ for your posts. It isn't limited to one post per subdirectory however; you can use subdirectories as categories, dividing up your posts manually. Here's an example:</p>
+                    </div>
+
+                    <br class="clear">
+                    <script src="https://gist.github.com/3086155.js?file=directory_structure.txt"></script>
+
+                    <p class="pl-body">That's a possible directory structure that would work with payload. Here's that directory structure in markup:</p>
+
+                    <br class="clear">
+                    <script src="https://gist.github.com/3086155.js?file=output.html"></script>
+
+                    <p class="pl-body">You can see that the names of the categories are derived directly from their directory names, as are the post titles.</p>
+
+                    <br class="clear">
+
+                </section><!-- end of #use -->
+
+
+                <section class="pl-section">
+
+                    <h1 class="pl-body">Payload in the Wild</h1>
+
+                    <div class="pl-sidebar">
+                        <h3>Are You Using Payload?</h3>
+
+                        <p>Tell <a href="" title="">pl@ralphsaunders.co.uk</a>
+                        and be added to this list.</p>
+                    </div>
+
+                </section>
+
+            </article>
+        </div><!-- end of .pl-wrap -->
+    </body>
+</html>
