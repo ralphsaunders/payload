@@ -6,12 +6,10 @@
         </title>
 
         <?php $this->load->helper( 'url' ); ?>
+        <?php if( current_url() != base_url() ): ?>
         <!-- Payload's Default CSS -->
         <link href="<?php echo base_url(); ?>assets/css/styles.css" type="text/css" rel="stylesheet">
-
-        <!-- Typekit -->
-        <script type="text/javascript" src="http://use.typekit.com/roi3hdr.js"></script>
-        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <?php endif; ?>
 
         <!-- Default Favicon -->
         <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico">
