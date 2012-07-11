@@ -1,6 +1,14 @@
 @import "reset.css";
 
 /**
+ * Misc
+ */
+::selection {
+    background-color:#F5E0D5;
+    text-shadow:none;
+}
+
+/**
  * Typography
  */
 
@@ -8,7 +16,6 @@
 body {
     font:20px/1.6 ff-meta-web-pro, Helvetica, Sans-serif;
     color:#252525;
-    padding-top:.8em;
 }
 
 .grid {
@@ -136,6 +143,30 @@ a:hover {
     cursor:pointer;
 }
 
+.button {
+    background:blue;
+    display:inline-block;
+    text-align:center;
+    color:#fff;
+    border-radius:5px;
+    padding:.2em 1em;
+    margin-bottom:.7em;
+    text-decoration:none;
+}
+
+.download {
+    background:#fa5d0e;
+}
+
+.download:hover {
+    background:#f97837;
+}
+
+.download:active {
+    background:#e35e1b;
+    box-shadow:inset 0 0 10px #913e14;
+}
+
 /**
  * Form
  */
@@ -240,14 +271,72 @@ input[type="submit"]:hover {
     margin-top:100px;
 }
 
-#you-should-know .pl-three-col {
+.pl-three-col {
     font:0.8em/2 ff-meta-web-pro, Sans-serif;
 }
 
-#you-should-know .pl-three-col h4 {
+.pl-three-col h4 {
     font:bold 1.25em/1.7 ff-meta-web-pro, Sans-serif;
 }
 
 .pl-section {
     margin-bottom:.2em;
+}
+
+/**
+ * Masthead
+ */
+.masthead {
+    background-color:rgba(0, 0, 0, .3 );
+    background:#fa5d0e url( '../images/background.png' ) repeat;
+    color:#381503;
+    font-size:2em;
+    padding-top:1.75em;
+    font-family:"ff-meta-serif-web-pro", Georgia, serif;
+}
+
+.heading-wrap {
+    text-align:center;
+}
+
+.masthead-heading {
+    font-family: "futura-pt", Sans-serif;
+    text-transform:uppercase;
+    font-size:1.2em;
+    margin-top:0;
+    color:#F7F7F7;
+    letter-spacing:.1em;
+    margin-bottom:.13em;
+    display:inline-block;
+}
+
+.masthead-heading span  {
+    display:block;
+    float:left;
+}
+.masthead-heading .char3 { margin-right:-2px; }
+.masthead-heading .char7 { margin-left:-1px; }
+.masthead-heading .char8 { margin-left:-1px; }
+
+.masthead .logo-wrap {
+    position:relative;
+    padding-bottom:3.25em;
+}
+
+.masthead .logo {
+    display:block;
+    margin:0 auto;
+    padding-bottom:.5em;
+    position:absolute;
+    left:359px;
+}
+
+.masthead .logo-wrap:hover {
+    cursor:pointer;
+}
+
+.masthead p {
+    line-height:1.2;
+    padding-top:0.25em;
+    padding-bottom:0.05em; /* Yes, I am that pedantic */
 }

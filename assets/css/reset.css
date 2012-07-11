@@ -33,6 +33,7 @@ footer, header, hgroup, menu, nav, section {
 .none         { float:none; }
 img.left      { margin-right:1em; margin-bottom:1em; }
 img.right     { margin-left:1em; margin-bottom:1em; }
+img.center    { margin:0 auto; display:block; }
 .text-right   { text-align:right; }
 .half         { width:45%; /* Not exactly half to account for paddings, margins etc. */ }
 

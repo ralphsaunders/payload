@@ -12,6 +12,10 @@
         <script type="text/javascript" src="http://use.typekit.com/roi3hdr.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+        <!-- JS -->
+        <script type="text/javascript"
+            src="./assets/js/jquery-1.7.2.min.js"></script>
+
         <!-- Default Favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
@@ -22,44 +26,88 @@
         <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch-icon-retina-ipad.png" />
 
     </head>
-    <body class="grid">
+    <body class="">
+
+        <header id="intro" class="masthead">
+
+            <div class="pl-wrap" id="payload">
+
+                <div class="logo-wrap">
+                    <img class="logo" src="./assets/images/logo.png" alt="Payload" />
+                </div>
+
+                <br class="clear">
+
+                <div class="heading-wrap">
+                    <h1 class="masthead-heading">&middot;Payload&middot;</h1>
+                </div>
+
+
+                <p>Payload is a web publishing system for web designers &amp; developers. Systems like Wordpress are great for publishing blog posts, but when it comes to publishing advanced web pages with interactive infographics, graphs, and games, they fall apart. Payload aims to fix this.</p>
+
+            </div>
+            <br class="clear">
+        </header>
+
+        <section id="how-payload-works" class="pl-section">
+
+            <img class="center" src="./assets/images/what-it-does.png" alt="Payload lists stuff
+            you put in the /posted/ directory, wrapping it in a few semantic
+            HTML tags, allowing you to style it the way you want" />
+
+            <div class="pl-wrap">
+                <div class="pl-sidebar">
+                    <h3>Download Payload</h3>
+
+                    <p>Payload requires PHP version 5.1.6 or newer. Unzip
+                    Payload in a directory on your server and you're good to go.</p>
+
+                    <a class="button download" href="https://github.com/ralphsaunders/payload"
+                        title="Payload is on Github">Github Repo</a>
+
+                    <br>
+
+                    <a class="button download" href="https://github.com/ralphsaunders/payload/zipball/master"
+                        title="Payload is on Github">Direct Download</a>
+
+                </div>
+
+                <h1 class="pl-body">How it Works</h1>
+
+                <div class="pl-body">
+                    <p>Payload indexes a special directory named `/posted`.
+                    Everything you put in that directory gets listed on the
+                    homepage of your payload installation.</p>
+
+                    <h5>Payload has been built to be extendable.</h5>
+
+                    <ol>
+                        <li>Articles in the list are wrapped in semantic HTML,
+                        ready for you to style with your own CSS.</li>
+
+                        <li>Adding more content to the homepage is as easy as
+                        editing a view &mdash; you don't even have to dirty your
+                        hands with PHP.</li>
+
+                        <li>Want to do more complex things like listing
+                        thumbnails instead of just words? Payload was built on
+                        codeigniter, so if you can write PHP, you can extend
+                        Payload.</li>
+                    </ol>
+                </div>
+                <br class="clear">
+            </div>
+
+        </section>
 
         <div class="pl-wrap">
-
             <article>
-                <section id="intro" class="pl-section">
-
-                    <div class="pl-body" id="payload">
-                        <h1>What's Payload?</h1>
-
-                        <p>Payload is a web publishing system for web designers &amp; developers. Systems like Wordpress are great for publishing blog posts, but when it comes to publishing advanced web pages with interactive infographics, graphs, and games, they fall apart. Payload aims to fix this.</p>
-
-                    </div>
-                    <br class="clear">
-                </section>
-                <section id="how-payload-works" class="pl-section">
-
-                    <div class="pl-sidebar">
-                        <h3>Extending Payload</h3>
-
-                        <p>Payload was built to be easy to extend, see the <a
-                            href="./guides/extending-payload.html" title="">extending Payload guide</a>.</p>
-                    </div>
-
-                    <h1 class="pl-body">How it Works</h1>
-
-                    <div class="pl-body">
-                        <p>Payload indexes a special directory named `/posted`. Everything you put in that directory gets listed on the homepage of your payload instance.</p>
-                    </div>
-
-                    <br class="clear">
-                </section>
                 <section class="pl-section" id="use">
                     <div class="pl-sidebar">
                         <h3>Behaviours</h3>
 
                         <p>For details on Payload's technical behaviours see
-                        <em><a href="./about#use-payload" title="">things you should know</a></em>.</p>
+                        <em><a href="#you-should-know" title="">things you should know</a></em>.</p>
                     </div>
 
                     <div class="pl-body">
@@ -80,9 +128,41 @@
 
                     <br class="clear">
 
+                    <div class="pl-body">
+                        <h2 id="you-should-know">You Should Know</h2>
+
+                        <p>Payload is very new and because of that there is a
+                        lot of stuff that may change. There are a few things
+                        that you should be aware of before choosing to put your
+                        data into the Payload system.</p>
+                    </div>
+
+                    <br class="clear">
+
+                    <div class="pl-three-col">
+                        <h4>Payload Mirrors</h4>
+                        <p>Payload mirrors the /posted/ directory. Everything placed in there is public, so it's probably best if you don't go storing your passwords there.</p>
+                    </div>
+
+                    <div class="pl-three-col">
+                        <h4>Payload is New</h4>
+                        <p>Payload is very new and hasn't been tested a whole bunch. There will be bugs and some of them may be particularly nasty. I'm working to solve these, so if you come across one please contact <a href="">pl@ralphsaunders.co.uk</a> with the details.</p>
+                    </div>
+
+                    <div class="pl-three-col last">
+                        <h4>Payload is Destructive</h4>
+                        <p>Payload renames HTML files placed in the /posted/ directory to index.html. <em>All of them</em>.</p>
+                    </div>
+
                 </section><!-- end of #use -->
 
             </article>
         </div><!-- end of .pl-wrap -->
+
+        <!-- JS -->
+        <script type="text/javascript"
+            src="./assets/js/jquery.lettering-0.6.1.min.js"></script>
+
+        <script type="text/javascript" src="./assets/js/scripts.js"></script>
     </body>
 </html>
